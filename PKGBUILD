@@ -1,21 +1,27 @@
-# maintainer: Philip Müller <philm[at]manjaro[dog]org>
+#########################################################
+#
+# Prisma Welcome
+#
+# Based on Manjaro-welcome project by Philip Müller
+#
+# Author: Pablo Gutierrez Alfaro <pablo@royappty.com>
+# Last Edit: 07-08-2014
+# Version: 0.1
+#
+#########################################################
 
-pkgname=manjaro-welcome
-pkgver=0.8.9
+pkgname=prisma-welcome
+pkgver=0.1
 pkgrel=1
-pkgdesc="The Manjaro Welcome utility provides a simple interface for accessing all the relevant information for a new user of Manjaro."
+pkgdesc="The Prisma Welcome utility provides a simple interface for accessing all the relevant information for a new user of Prisma."
 arch=(any)
-url="https://git.manjaro.org/core/manjaro-welcome"
+url="https://github.com/prismamec/prisma-welcome"
 license=('GPL')
 depends=('python-simplejson' 'python-gobject' 'pywebkitgtk')
 options=(!emptydirs)
 
-## Stable release
-#source=("pamac-$pkgver.tar.gz::http://git.manjaro.org/core/manjaro-welcome/archive-tarball/v$pkgver")
-#sha256sums=('9483be4b207d9495639977dec2405ec6a1c81671a830adc0b64b14a4e1e91b4b')
-
 ## Git release
-source=(git+http://git.manjaro.org/core/manjaro-welcome.git)
+source=(git+http://github.org/prismamec/prisma-welcome.git)
 sha256sums=('SKIP')
 
 package() {
@@ -24,7 +30,7 @@ package() {
     else
         cd "$srcdir/$pkgname/src"
     fi
-    
+
     mkdir -p "${pkgdir}/usr/share/${pkgname}"
     mkdir -p "${pkgdir}/usr/share/icons/hicolor"
     cp  -a data/* "${pkgdir}/usr/share/${pkgname}"

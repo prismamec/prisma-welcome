@@ -1,0 +1,10 @@
+[Desktop Entry]
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;System;
+StartupNotify=false
+Name=Prisma Welcome
+Exec=prisma-welcome
+Icon=gtk-info
+Comment=The Prisma Welcome utility.
+Name[en_EN.UTF-8]=Prisma Welcome
