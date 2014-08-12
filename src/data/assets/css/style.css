@@ -29,7 +29,7 @@ body {
   line-height: 1.5;
   font-style: normal;
   font-weight: normal;
-  background-color:#f2f4f6;
+  background: url("../img/bg/slide_one.jpg") no-repeat fixed center;
   text-rendering: optimizeLegibility;
 }
 .main-wrapper{
