@@ -1,6 +1,6 @@
-prisma-welcome
+Prisma Welcome
 ==============
 
-The Prisma Welcome utility provides a simple interface for accessing all the relevant information for a new user of Prisma.
+Prisma Welcome provides to new users of Prisma a simple UI for accessing at all info such as community involvement or send feedback.
 
-Current Version:0.1
+Current version: 0.0.1

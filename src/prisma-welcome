@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 #
-# Copyright 2014 "Prisma Mechatronics" <hello@prismamec.com>
-# Copyright 2013 "Manjaro Linux" <support@manjaro.org>
-# Copyright 2012-2013 "Korora Project" <dev@kororaproject.org>
+# Copyright 2012, 2013 Korora Project <dev@kororaproject.org>
+# Copyright 2013 Manjaro Linux <support@manjaro.org>
+# Copyright 2014 Prisma Mechatronics <pablo@prismaos.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the temms of the GNU General Public License as published by
@@ -27,8 +27,7 @@ import sys
 import urllib.request
 import webbrowser
 
-#from simplejson import dumps as to_json
-
+from simplejson import dumps as to_json
 from gi.repository import WebKit, Gtk
 
 
@@ -40,17 +39,17 @@ class WelcomeConfig(object):
         else:
             self._arch = '32-bit'
 
-        # store we are a live CD session
+        # store we are in a install session
         self._live = (os.path.exists('/bootmnt/prisma'))
 
         # store full path to our binary
         self._welcome_bin_path = os.path.abspath(inspect.getfile(inspect.currentframe()))
 
-        # store directory to our welcome configuration
+        # store directory to our welcome config
         self._config_dir = os.path.expanduser('~/.config/prisma/welcome/')
 
-        # store full path to our autostart symlink
-        self._autostart_path = os.path.expanduser('~/.config/autostart/prisma-welcome.desktop')
+        # store full path to our autostart symlink; disabled, not applicable
+        #self._autostart_path = os.path.expanduser('~/.config/autostart/prisma-welcome.desktop')
 
         # ensure our config directory exists
         if not os.path.exists(self._config_dir):
@@ -61,7 +60,7 @@ class WelcomeConfig(object):
                 pass
 
         # does autostart symlink exist
-        self._autostart = os.path.exists(self._autostart_path)
+        #self._autostart = os.path.exists(self._autostart_path)
 
     @property
     def arch(self):
@@ -95,7 +94,7 @@ class WelcomeConfig(object):
         return self._live
 
 
-class ManjaroAppView(WebKit.WebView):
+class PrismaAppView(WebKit.WebView):
     def __init__(self):
         WebKit.WebView.__init__(self)
 
@@ -145,7 +144,7 @@ class ManjaroAppView(WebKit.WebView):
         self.l_uri = uri
 
         page = urllib.request.urlopen(uri)
-        frame.load_string(page.read().decode("iso-8859-15"), "text/html", "iso-8859-15", page.geturl())
+        frame.load_string(page.read().decode("utf-8"), "text/html", "utf-8", page.geturl())
         pol_dec.ignore()
         return True
 
@@ -189,13 +188,13 @@ class WelcomeApp(object):
 
         # check for relative path
         if(os.path.exists(os.path.join(self._location, 'data/'))):
-            print('Using relative path for data source. Non-production testing.')
+            print('Prisma Welcome: Using relative path for data source. Alpha: Non-production testing.')
             self._data_path = os.path.join(self._location, 'data/')
         elif(os.path.exists('/usr/share/prisma-welcome/')):
             print('Using /usr/share/prisma-welcome/ path.')
             self._data_path = '/usr/share/prisma-welcome/'
         else:
-            print('Unable to source the prisma-welcome data directory.')
+            print('Unable to source prisma-welcome data directory.')
             sys.exit(1)
 
         self._build_app()
@@ -207,10 +206,10 @@ class WelcomeApp(object):
         w.set_wmclass('Prisma Welcome', 'Prisma Welcome')
         w.set_title('Prisma Welcome')
         w.set_size_request(768, 496)
-        w.set_icon_from_file(os.path.join(self._data_path, "img/favicon.png"))
+        w.set_icon_from_file(os.path.join(self._data_path, "../data_old/img/favicon.png"))
 
         # build webkit container
-        mv = ManjaroAppView()
+        mv = PrismaAppView()
 
         # load our index file
         file_in = os.path.abspath(os.path.join(self._data_path, 'index.template'))
