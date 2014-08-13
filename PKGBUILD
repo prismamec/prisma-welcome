@@ -2,9 +2,11 @@
 #
 # Prisma Welcome
 #
-# Based on Manjaro-welcome project by Philip Müller
+# Based on Welcome by Antergos/Manjaro | Philip Müller
 #
-# Author: Pablo Gutierrez Alfaro <pablo@royappty.com>
+# Authors:
+# Pablo Gutierrez Alfaro <pablo@prismaos.com>
+# 
 # Last Edit: 07-08-2014
 # Version: 0.1
 #
