@@ -8,6 +8,6 @@
   *********************************************************/
 
   //Welcome
-  $s["welcome_to_prisma"]="Bienvenido a Prisma";
+  $s["recovery_system"]="Sistema de recuperación";
 
 ?>
