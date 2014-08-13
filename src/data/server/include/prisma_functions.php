@@ -139,165 +139,6 @@ function corporate_email($mail_for,$mail_subject,$content){
 		return true;
 }
 
-
-function create_block_data($block_data_code,$data1="",$data2=""){
-
-	$block_data="?";
-	switch ($block_data_code){
-		case "campaigns":
-			$table="campaigns";
-			$filter=array();
-			$filter["id_brand"]=array("operation"=>"=","value"=>$data1);
-			$filter["status"]=array("operation"=>"=","value"=>1);
-			$block_data=countInBD($table,$filter);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-
-		case "usage_this_month":
-			$month=strtotime(date("Y-m-d 00:00:00",strtotime("-1 month")));
-			$table="used_codes_month_summaries";
-			$filter=array();
-			$filter["id_brand"]=array("operation"=>"=","value"=>$data1);
-			$filter["start"]=array("operation"=>"=","value"=>$month);
-			$sumfield="used_codes_amount";
-			$block_data=sumInBD($table,$filter,$sumfield);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-		case "usage_this_today":
-			$day=strtotime(date("Y-m-d 00:00:00"));
-			$table="used_codes_day_summaries";
-			$filter=array();
-			$filter["id_brand"]=array("operation"=>"=","value"=>$data1);
-			$filter["start"]=array("operation"=>"=","value"=>$day);
-			$sumfield="used_codes_amount";
-			$block_data=sumInBD($table,$filter,$sumfield);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-		case "users":
-			$table="users";
-			$filter=array();
-			$filter["id_brand"]=array("operation"=>"=","value"=>$data1);
-			$filter["active"]=array("operation"=>"=","value"=>1);
-			$block_data=countInBD($table,$filter);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-
-		case "admin_validated_this_month":
-			$month=strtotime(date("Y-m-d 00:00:00",strtotime("-1 month")));
-			$table="validated_codes_month_summaries";
-			$filter=array();
-			$filter["id_admin"]=array("operation"=>"=","value"=>$data1);
-			$filter["start"]=array("operation"=>"=","value"=>$month);
-			$tmp=getInBD($table,$filter);
-			$block_data=$tmp["validated_codes_amount"];
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-		case "admin_validated_this_today":
-			$day=strtotime(date("Y-m-d 00:00:00"));
-			$table="validated_codes_day_summaries";
-			$filter=array();
-			$filter["id_admin"]=array("operation"=>"=","value"=>$data1);
-			$filter["start"]=array("operation"=>"=","value"=>$day);
-			$tmp=getInBD($table,$filter);
-			$block_data=$tmp["validated_codes_amount"];
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-		case "admin_validated":
-			$table="validated_codes_month_summaries";
-			$filter=array();
-			$filter["id_admin"]=array("operation"=>"=","value"=>$data1);
-			$sumfield="validated_codes_amount";
-			$block_data=countInBD($table,$filter);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-		case "campaign_usage_this_month":
-			$month=strtotime(date("Y-m-d 00:00:00",strtotime("-1 month")));
-			$table="used_codes_day_summaries";
-			$filter=array();
-			$filter["id_campaign"]=array("operation"=>"=","value"=>$data1);
-			$filter["start"]=array("operation"=>">","value"=>$month);
-			$sumfield="used_codes_amount";
-			$block_data=sumInBD($table,$filter,$sumfield);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-		case "campaign_usage_today":
-			$day=strtotime(date("Y-m-d 00:00:00"));
-			$table="used_codes_day_summaries";
-			$filter=array();
-			$filter["id_campaign"]=array("operation"=>"=","value"=>$data1);
-			$filter["start"]=array("operation"=>"=","value"=>$day);
-			$tmp=getInBD($table,$filter);
-			$block_data=$tmp["used_codes_amount"];
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-		case "campaign_usage_total":
-			$table="used_codes_month_summaries";
-			$filter=array();
-			$filter["id_campaign"]=array("operation"=>"=","value"=>$data1);
-			$sumfield="used_codes_amount";
-			$block_data=sumInBD($table,$filter,$sumfield);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-
-		case "group_usage_this_month":
-			$month=strtotime(date("Y-m-d 00:00:00",strtotime("-1 month")));
-			$table="user_groups";
-			$filter=array();
-			$filter["id_group"]=array("operation"=>"=","value"=>$data1);
-			$block_data=0;
-			if(isInBD($table,$filter)){
-					$user_groups=listInBD($table,$filter);
-					$table="used_codes_user_day_summaries";
-					$filter=array();
-					$filter["start"]=array("operation"=>">","value"=>$month);
-					$filter["complex"]="";
-					$or="";
-					foreach($user_groups as $key => $user_group){
-							$filter["complex"].=$or."id_user=".$user_group["id_user"];
-							$or=" or ";
-					}
-					$sumfield="used_codes_amount";
-					$block_data=sumInBD($table,$filter,$sumfield);
-			}
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-
-		case "group_usage_today":
-			$day=strtotime(date("Y-m-d 00:00:00"));
-			$table="user_groups";
-			$filter=array();
-			$filter["id_group"]=array("operation"=>"=","value"=>$data1);
-			$block_data=0;
-			if(isInBD($table,$filter)){
-					$user_groups=listInBD($table,$filter);
-					$table="used_codes_user_day_summaries";
-					$filter=array();
-					$filter["start"]=array("operation"=>">","value"=>$day);
-					$filter["complex"]="";
-					$or="";
-					foreach($user_groups as $key => $user_group){
-							$filter["complex"].=$or."id_user=".$user_group["id_user"];
-							$or=" or ";
-					}
-					$sumfield="used_codes_amount";
-					$block_data=sumInBD($table,$filter,$sumfield);
-			}
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-
-		case "group_users":
-			$table="user_groups";
-			$filter=array();
-			$filter["id_group"]=array("operation"=>"=","value"=>$data1);
-			$block_data=countInBD($table,$filter);
-			if(!@issetandnotempty($block_data)){$block_data=0;}
-			break;
-
-	}
-
-	return $block_data;
-}
-
 function checkClosed(){
 	global $page_path;
 	global $response;
@@ -308,41 +149,13 @@ function checkClosed(){
 		debug_log("[".$page_path."] ERROR System Closed");
 		$response["error"]="ERROR System Closed";
 		$response["error_code"]="system_closed";
+		$response["error_code_str"]= $error_code_s["system_closed"];
 		return false;
 		die();
 	}
 
 	return true;
 	die();
-}
-
-function checkBrand($brand){
-	global $page_path;
-	global $response;
-
-	if(!@issetandnotempty($brand["id_brand"])){
-	 	$response["result"]=false;
-		debug_log("[".$page_path."] ERROR Data Missing id_brand");
- 		$response["error"]="ERROR Data Missing brand identificator";
-  		$response["error_code"]="no_brand";
- 		return false;
- 		die();
- 	}
- 	$table="brands";
- 	$filter=array();
- 	$filter["id_brand"]=array("operation"=>"=","value"=>$brand["id_brand"]);
- 	$filter["active"]=array("operation"=>"=","value"=>1);
- 	if(!isInBD($table,$filter)){
-	 	$response["result"]=false;
-		debug_log("[".$page_path."] ERROR Brand not exists or inactive (id_brand=".$brand["id_brand"]." | active=1)");
- 		$response["error"]="ERROR Data Missing not exists or inactive";
- 		$response["error_code"]="brand_not_valid";
- 		return false;
- 		die();
- 	}
- 	return true;
- 	die();
-
 }
 
 function checkBDConnection(){
@@ -355,6 +168,7 @@ function checkBDConnection(){
 		debug_log("[".$page_path."] ERROR Can't connect with DataBase");
 		$response["error"]="ERROR Can't connect with DataBase";
 		$response["error_code"]="db_connection_error";
+		$response["error_code_str"]= $error_code_s["db_connection_error"];
 		return false;
 		die();
 	}
@@ -363,45 +177,48 @@ function checkBDConnection(){
 	die();
 }
 
-function checkAdmin($admin){
+function checkUser($user){
 	global $page_path;
 	global $response;
 
-	if(!@issetandnotempty($admin["id_admin"])){
-	 	$response["result"]=false;
-		debug_log("[".$page_path."] ERROR Data Missing id_admin");
- 		$response["error"]="ERROR Data Missing admin identificator";
-  		$response["error_code"]="no_admin";
+	if(!@issetandnotempty($user["id_user"])){
+		$response["result"]=false;
+		debug_log("[".$page_path."] ERROR Data Missing id_user");
+		$response["error"]="ERROR Data Missing user identificator";
+		$response["error_code"]="no_user";
+		$response["error_code_str"]= $error_code_s["no_user"];
 		return false;
- 		die();
- 	}
+		die();
+	}
 
- 	$table="admins";
- 	$filter=array();
- 	$filter["id_admin"]=array("operation"=>"=","value"=>$admin["id_admin"]);
- 	if(!isInBD($table,$filter)){
-	 	$response["result"]=false;
-		debug_log("[".$page_path."] ERROR User not exists (id_admin=".$admin["id_admin"].")");
- 		$response["error"]="ERROR User not in the system";
- 		$response["error_code"]="admin_not_valid";
- 		return false;
- 		die();
- 	}
+	$table="users";
+	$filter=array();
+	$filter["id_user"]=array("operation"=>"=","value"=>$user["id_user"]);
+	if(!isInBD($table,$filter)){
+		$response["result"]=false;
+		debug_log("[".$page_path."] ERROR User not exists (id_user=".$user["id_user"].")");
+		$response["error"]="ERROR User not in the system";
+		$response["error_code"]="user_not_valid";
+		$response["error_code_str"]= $error_code_s["user_not_valid"];
+		return false;
+		die();
+	}
 
- 	$table="admins";
- 	$filter=array();
- 	$filter["id_admin"]=array("operation"=>"=","value"=>$admin["id_admin"]);
- 	$filter["active"]=array("operation"=>"=","value"=>1);
- 	if(!isInBD($table,$filter)){
-	 	$response["result"]=false;
-		debug_log("[".$page_path."] ERROR Admin inactive (id_admin=".$admin["id_admin"].")");
- 		$response["error"]="ERROR User not in the system";
-  		$response["error_code"]="admin_inactive";
-		echo json_encode($response);
- 		die();
- 	}
- 	return true;
- 	die();
+	$table="users";
+	$filter=array();
+	$filter["id_user"]=array("operation"=>"=","value"=>$user["id_user"]);
+	$filter["active"]=array("operation"=>"=","value"=>1);
+	if(!isInBD($table,$filter)){
+		$response["result"]=false;
+		debug_log("[".$page_path."] ERROR user inactive (id_user=".$user["id_user"].")");
+		$response["error"]="ERROR User inactive";
+		$response["error_code"]="user_inactive";
+		$response["error_code_str"]= $error_code_s["user_inactive"];
+		echo "jsonCallback(".json_encode($response).")";
+		die();
+	}
+	return true;
+	die();
 }
 
 function error_handler($error_code){

@@ -2303,10 +2303,10 @@ form legend,
 }
 
 .form-group .controls{
-	margin-top:8px;
+	margin-top:0px;
 }
 .form-control{
-	border:1px solid #E5E9EC
+  border:1px solid #E5E9EC
 }
 .form-row input, .form-row select, .form-row textarea, .form-row select2{
 	margin-bottom:10px;
@@ -2811,4 +2811,20 @@ margin-bottom:0px;
 }
 .full-width{
   width:100%;
+}
+label.error{
+  float:right;
+  font-size:11px;
+  margin:0;
+}
+.form-checkbox{
+  margin-bottom:15px;
+}
+.form-checkbox label.error{
+  margin-top:12px;
+}
+.form-error{
+  text-align:center;
+  color:red;
+  margin-bottom:15px;
 }

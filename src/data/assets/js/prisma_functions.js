@@ -26,6 +26,9 @@
       //window.location.href =  $PATH+"error/?error_code=base";break error_block;
     }
   }
+  function form_error_handler(form_id,error_srt){
+    $("#"+form_id).prepend("<div class='form-error'>"+error_srt+"</div>");
+  }
   function modal_error_handler(error_code){
     error_block:{
       if(error_code=="ajax_error"){set_modal("error-modal",$error_s["ajax_error_title"],$error_s["ajax_error_content"],$s["close"],"#");break error_block;}
