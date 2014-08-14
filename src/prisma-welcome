@@ -157,8 +157,8 @@ class PrismaAppView(WebKit.WebView):
         if(uri == 'gnome-help'):
             subprocess.Popen(['yelp'])
 
-        elif(uri == 'kde-help'):
-            subprocess.Popen(['khelpcenter'])
+        elif(uri == 'test'):
+            subprocess.Popen(['glmark2 -b ideas'])
 
         elif(uri == 'install'):
             subprocess.Popen(['sudo', 'thus'])
@@ -207,7 +207,7 @@ class WelcomeApp(object):
         w.set_wmclass('Prisma Welcome', 'Prisma Welcome')
         w.set_title('Prisma Welcome')
         w.set_size_request(768, 496)
-        w.set_icon_from_file(os.path.join(self._data_path, "../data_old/img/favicon.png"))
+        w.set_icon_from_file(os.path.join(self._data_path, "../data/img/favicon.png"))
 
         # build webkit container
         mv = PrismaAppView()
