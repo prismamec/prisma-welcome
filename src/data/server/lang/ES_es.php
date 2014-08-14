@@ -74,7 +74,7 @@
   $s["error"] = "Ha ocurrido un error";
 
   //Error strings
-  $error_code_s[""] = "Nuestro sistema se encuentra en mantenimiento, por favor vuelva a intentarlo más tarde."
+  $error_code_s[""] = "Nuestro sistema se encuentra en mantenimiento, por favor vuelva a intentarlo más tarde.";
   $error_code_s["base"] = "Ha occurido un error desconocido en nuestro sistema, por favor vuelva a intentarlo más tarde.";
   $error_code_s["system_closed"] = "Se han bloqueado las peticiones al servidor en estos momentos, por favor vuelva a intentarlo más tarde";
   $error_code_s["db_connection_error"] = "Nuestro servidor está pasando por dificultades, por favor vuelva a intentarlo más tarde";
