@@ -16,7 +16,7 @@
       contentType: 'application/json',
       url: $SERVER_PATH+"server/ajax/error/get_error.php",
       data: {
-        error_code: $GET["error_code"],
+        error_code: localStorage.getItem("error_code"),
         lang: localStorage.getItem("lang")
       },
       error: function(data, textStatus, jqXHR) {
