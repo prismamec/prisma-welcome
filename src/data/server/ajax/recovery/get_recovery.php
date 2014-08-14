@@ -73,6 +73,9 @@
                   <div class='m-l-40 m-r-40 m-t-20'>
                     <img width='300px' src='../assets/img/logo.png'/>
                   </div>
+                  <p class='m-t-20'>
+                    <img class='m-l-10 m-r-10' width='100px' src='../assets/img/recovery_icon.png'/>
+                  </p>
                   <h3>".htmlentities($s["storage_and_backups"], ENT_QUOTES, "UTF-8")."</h3>
                   <p>".htmlentities($s["storage_and_backups_help"], ENT_QUOTES, "UTF-8")."</p>
                 </div>
@@ -102,6 +105,9 @@
                   <div class='col-md-2'>
                   </div>
                 </div>
+                <p class='m-t-20 text-center'>
+                  <a href='../welcome/index.html' class='btn btn-white'>".$s["back"]."</a>
+                </p>
               </div>
             </div>
           </div>

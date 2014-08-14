@@ -68,7 +68,8 @@
 
   //Recovery Local
   $s["recovery_local_help"] = "Selecciona la copia de seguirad local que deseas restaurar";
-  
+  $s["start_recover"] = "Comenzar Recuperación";
+  $s["backup"] = "Copia de Seguridad";
   //Error
   $s["error"] = "Ha ocurrido un error";
 
