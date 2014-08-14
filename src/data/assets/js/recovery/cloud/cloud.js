@@ -14,7 +14,7 @@
       jsonp: 'callback',
       jsonpCallback: 'jsonCallback',
       contentType: 'application/json',
-      url: $SERVER_PATH+"server/ajax/recovery/local/get_local.php",
+      url: $SERVER_PATH+"server/ajax/recovery/cloud/get_cloud.php",
       data: {
         id_user: localStorage.getItem("id_user"),
         sessionkey: localStorage.getItem("sessionkey"),
@@ -32,7 +32,7 @@
             $('#restore-command').attr('href','cmd://restore?mode=local&id_restore='+$(this).attr('id'));
           });
           $('#restore-command').click(function(){
-            localStorage.setItem("recover_mode","local");
+            localStorage.setItem("recover_mode","cloud");
             window.location.href = $PATH+"recovery/start/index.html";
             return false;
           });

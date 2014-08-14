@@ -35,7 +35,6 @@
               minlength: $s["signup_name_this_field_needs_4_character_minimum"]
             },
             email:{
-              remote: $s["signup_email_this_email_is_already_registered"],
               required: $s["signup_email_this_field_is_compulsory"],
               email: $s["signup_email_format_is_not_correct"]
             },
@@ -59,7 +58,6 @@
               minlength: 4
             },
             email:{
-              remote:$SERVER_PATH+"server/ajax/signup/check_email_not_used.php",
               required:true,
               email: true
             },
@@ -97,12 +95,11 @@
                 form_error_handler("form-signup",$s_form_error["ajax_error"]);
               },
               success: function(response) {
-                alert("ok");
-
                 if(response.result){
+                  localStorage.setItem('id_user',response.data.id_user);
+                  localStorage.setItem('sessionkey',response.data.sessionkey);
+                  window.location.href = "../welcome/index.html";
                 }else{
-                  alert("error");
-                  alert(response.error_code_str);
                   form_error_handler("form-signup",response.error_code_str);
                 }
               }

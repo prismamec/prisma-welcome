@@ -7,6 +7,7 @@
   *********************************************************/
 
   $(document).ready(function(){
+    alert(localStorage.getItem("recover_mode"));
     $.ajax({
       async: false,
       type: "GET",
@@ -18,6 +19,7 @@
       data: {
         id_user: localStorage.getItem("id_user"),
         sessionkey: localStorage.getItem("sessionkey"),
+        recover_mode: localStorage.getItem("recover_mode"),
         lang: localStorage.getItem("lang")
       },
       error: function(data, textStatus, jqXHR) {

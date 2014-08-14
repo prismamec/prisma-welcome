@@ -29,7 +29,6 @@
              $(".ajax-loader-"+key).html(value);
           });
         }else{
-          alert("ERROR: "+response.error_code);
           error_handler(response.error_code);
         }
       }
