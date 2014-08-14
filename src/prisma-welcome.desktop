@@ -6,5 +6,5 @@ StartupNotify=false
 Name=Prisma Welcome
 Exec=prisma-welcome
 Icon=gtk-info
-Comment=The Prisma Welcome utility.
-Name[en_EN.UTF-8]=Prisma Welcome
+Comment=Prisma Welcome
+Name[en_US.UTF-8]=Prisma Welcome

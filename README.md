@@ -1,6 +1,6 @@
 Prisma Welcome
 ==============
 
-The Prisma Welcome utility provides a simple interface for accessing to Prisma Cloud.
+Prisma Welcome provides to new users of Prisma a simple UI for accessing at all info such as community involvement or send feedback.
 
-Current Version:0.3
+Current Version:0.0.3
