@@ -20,10 +20,6 @@
   function error_handler(error_code){
     error_block:{
       localStorage.setItem('error_code',error_code);
-<<<<<<< HEAD
-=======
-      alert("Local storage: "+localStorage.getItem('error_code'));
->>>>>>> 20145d3ab7c4abdadbe8fd2f4f880a32070bb33c
       //General
       if(error_code=="ajax_error"){window.location.href = $PATH+"error/index.html";break error_block;}
       if(error_code=="system_closed"){window.location.href = $PATH+"closed/";break error_block;}
