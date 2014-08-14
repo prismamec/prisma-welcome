@@ -57,11 +57,26 @@
   //Account
   $s["hello"] = "Hola";
 
+  //Error
+  $s["error"] = "Ha ocurrido un error";
+
   //Error strings
+  $error_code_s["base"] = "Ha occurido un error desconocido en nuestro sistema, por favor vuelva a intentarlo más tarde.";
   $error_code_s["system_closed"] = "Se han bloqueado las peticiones al servidor en estos momentos, por favor vuelva a intentarlo más tarde";
   $error_code_s["db_connection_error"] = "Nuestro servidor está pasando por dificultades, por favor vuelva a intentarlo más tarde";
   $error_code_s["no_user"] = "No se ha podido identificar su usuario, por favor vuelva a loguarse e inténtelo de nuevo";
   $error_code_s["user_not_valid"] = "Su usuario no pertenece al sistema, por favor vuelva a loguarse e inténtelo de nuevo";
   $error_code_s["user_inactive"] = "Su usuario está bloqueado, por favor contacte con nosotros para solucionar esta situación";
+  $error_code_s["sessionkey_expired"] = "Su llave de conexión ha cadudado";
+  $error_code_s["session_expired"] = "Su sesión se ha cerrado por inactividad";
+
+  $error_link_s["base"] = "welcome/index.html";
+  $error_link_s["system_closed"] = "welcome/index.html";
+  $error_link_s["db_connection_error"] = "welcome/index.html";
+  $error_link_s["no_user"] = "login/index.html";
+  $error_link_s["user_not_valid"] = "login/index.html";
+  $error_link_s["user_inactive"] = "login/index.html";
+  $error_link_s["sessionkey_expired"] = "login/index.html";
+  $error_link_s["session_expired"] = "login/index.html";
 
 ?>

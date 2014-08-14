@@ -11,13 +11,7 @@
   * AJAX RETURNS
   *
   * ERROR CODES
-  * system_closed
-  * db_connection_error
-  * no_user
-  * user_not_valid
-  * user_inactive
-  * session_expired
-  * sessionkey_expired
+  *
   *
   *********************************************************/
 
@@ -29,35 +23,22 @@
   @session_start();
   $timestamp=strtotime(date("Y-m-d H:i:00"));
   include(PATH."include/includes.php");
-  $page_path="server/ajax/welcome/get_welcome";
+  $page_path="server/ajax/error/get_error";
   debug_log("[".$page_path."] START");
   $response=array();
 
   /*********************************************************
   * DATA CHECK
   *********************************************************/
-  // SYSTEM CLOSED
-  if(!checkClosed()){echo "jsonCallback(".json_encode($response).")";die();}
-
-  // BD CONNECTION
-  if(!checkBDConnection()){echo "jsonCallback(".json_encode($response).")";die();}
-
-  foreach($_GET as $key => $value){
-    error_log($key." ".$value);
-  }
-  // USER
-  if(!checkUser($_GET)){echo "jsonCallback(".json_encode($response).")";die();}
 
   /*********************************************************
   * AJAX OPERATIONS
   *********************************************************/
 
   $response["result"]=true;
-
-  $table="users";
-  $filter=array();
-  $filter["id_user"]=array("operation"=>"=","value"=>$_GET["id_user"]);
-  $user=getInBD($table,$filter);
+  if(@!issetandnotempty($error_code_s[$_GET["error_code"]])){
+    $_GET["error_code"]="base";
+  }
 
   $response["data"]["page-data"]="
   <div class='page-container padding-20'>
@@ -73,26 +54,9 @@
                   <div class='m-l-40 m-r-40 m-t-20'>
                     <img width='300px' src='../assets/img/logo.png'/>
                   </div>
-                  <h3>".htmlentities($s["hello"].", ".$user["name"], ENT_QUOTES, "UTF-8")."</h3>
-                </div>
-                <div class='row'>
-                  <div class='col-md-4 text-center'>
-                    <p class=''>
-                      <img width='100px' src='../assets/img/recovery_icon.png'/>
-                    </p>
-                    <a class='btn btn-white'>Recuperación</a>
-                  </div>
-                  <div class='col-md-4 text-center'>
-                    <p class=''>
-                      <img width='100px' src='../assets/img/softwarecenter.png'/>
-                    </p>
-                    <a class='btn btn-white'>Centro de software</a>
-                  </div>
-                  <div class='col-md-4'>
-                    <p class='text-center'>
-                      <img width='100px' src='../assets/img/account.png'/>
-                    </p>
-                  </div>
+                  <h3>".htmlentities($s["error"], ENT_QUOTES, "UTF-8")."</h3>
+                  <p>".htmlentities($error_code_s[$_GET["error_code"]], ENT_QUOTES, "UTF-8")."</p>
+                  <a href='../".$error_link_s[$_GET["error_code"]]."' class='btn btn-white'>".htmlentities($s["back"], ENT_QUOTES, "UTF-8")."</a>
                 </div>
               </div>
             </div>

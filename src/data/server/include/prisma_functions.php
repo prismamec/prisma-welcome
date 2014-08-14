@@ -180,6 +180,7 @@ function checkBDConnection(){
 function checkUser($user){
 	global $page_path;
 	global $response;
+	global $error_code_s;
 
 	if(!@issetandnotempty($user["id_user"])){
 		$response["result"]=false;
@@ -224,10 +225,39 @@ function checkUser($user){
 	$filter["sessionkey"]=array("operation"=>"=","value"=>$user["sessionkey"]);
 	if(!isInBD($table,$filter)){
 		$response["result"]=false;
-		debug_log("[".$page_path."] ERROR Sessionkey expired");
+		debug_log("[".$page_path."] ERROR SessionKey expired");
 		$response["error"]="ERROR Sessionkey expired";
 		$response["error_code"]="sessionkey_expired";
 		$response["error_code_str"]= $error_code_s["sessionkey_expired"];
+		return false;
+		die();
+	}
+
+	$table="users";
+	$filter=array();
+	$filter["id_user"]=array("operation"=>"=","value"=>$user["id_user"]);
+	$filter["last_login"]=array("operation"=>">","value"=>strtotime("-60 minutes"));
+	if(!isInBD($table,$filter)){
+		$response["result"]=false;
+		debug_log("[".$page_path."] ERROR Session expired");
+		$response["error"]="ERROR Session expired";
+		$response["error_code"]="session_expired";
+		$response["error_code_str"]= $error_code_s["session_expired"];
+
+		return false;
+		die();
+	}
+	$table="users";
+	$filter=array();
+	$filter["id_user"]=array("operation"=>"=","value"=>$user["id_user"]);
+	$filter["last_login"]=array("operation"=>">","value"=>strtotime("-60 minutes"));
+	if(!isInBD($table,$filter)){
+		$response["result"]=false;
+		debug_log("[".$page_path."] ERROR Session expired");
+		$response["error"]="ERROR Session expired";
+		$response["error_code"]="session_expired";
+		$response["error_code_str"]= $error_code_s["session_expired"];
+
 		return false;
 		die();
 	}
