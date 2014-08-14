@@ -27,7 +27,7 @@
   @session_start();
   $timestamp=strtotime(date("Y-m-d H:i:00"));
   include(PATH."include/includes.php");
-  $page_path="server/ajax/welcome/get_welcome";
+  $page_path="server/ajax/account/get_account";
   debug_log("[".$page_path."] START");
   $response=array();
 
@@ -74,24 +74,60 @@
                   <h3>".htmlentities($s["hello"].", ".$user["name"], ENT_QUOTES, "UTF-8")."</h3>
                 </div>
                 <div class='row'>
-                  <div class='col-md-4 text-center'>
-                    <p class=''>
-                      <img width='100px' src='../assets/img/recovery_icon.png'/>
-                    </p>
-                    <a class='btn btn-white'>Recuperación</a>
+                  <div class='col-md-1'>
+
                   </div>
-                  <div class='col-md-4 text-center'>
-                    <p class=''>
-                      <img width='100px' src='../assets/img/softwarecenter.png'/>
+                  <div class='col-md-3'>
+                    <p class='m-l-40 m-r-40 text-center'>
+                      <img width='100px' src='../assets/img/recovery.png'/>
                     </p>
-                    <a class='btn btn-white'>Centro de software</a>
                   </div>
-                  <div class='col-md-4'>
-                    <p class='text-center'>
+                  <div class='col-md-3'>
+                    <p class='m-l-40 m-r-40 text-center'>
+                      <img width='100px' src='../assets/img/recovery.png'/>
+                    </p>
+                  </div>
+                  <div class='col-md-3'>
+                    <p class='m-l-40 m-r-40 text-center'>
                       <img width='100px' src='../assets/img/account.png'/>
                     </p>
                   </div>
+                  <div class='col-md-1'>
+
+                  </div>
                 </div>
+                    <div class=''>
+                      <form id='form-login'>
+                        <div class='form-group'>
+                          <label class='form-label'>".htmlentities($login_s["email"], ENT_QUOTES, "UTF-8")."</label>
+                          <span class='help'>".htmlentities($login_s["email_help"], ENT_QUOTES, "UTF-8")."</span>
+                          <div class='controls'>
+                            <input type='text' class='form-control' id='email' name='email'/>
+                          </div>
+                        </div>
+                        <div class='form-group'>
+                          <label class='form-label'>".htmlentities($login_s["password"], ENT_QUOTES, "UTF-8")."</label>
+                          <span class='help'>".htmlentities($login_s["password_help"], ENT_QUOTES, "UTF-8")."</span>
+                          <div class='controls'>
+                            <input type='password' class='form-control' id='password' name='password'/>
+                          </div>
+                        </div>
+                        <p class='text-right m-t-10'>
+                          <a href='../recoverpass/index.html'>".$s["forgot_your_password?"]."</a>
+                        </p>
+                        <div class=''>
+                          <input type='submit' class='btn btn-primary btn-block btn-large' value='".$s["access"]."'/>
+                        </div>
+                      </form>
+                    </div>
+                    <div class='m-t-10'>
+                      <a href='../signup/index.html' class='btn btn-white btn-block'>".$s["signup"]."</a>
+                    </div>
+                  </div>
+                  <div class='col-md-3'>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

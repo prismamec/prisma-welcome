@@ -7,6 +7,7 @@
 *********************************************************/
 
 var $SERVER_PATH = $PATH;
+//var $SERVER_PATH = "http://www.prismaos.com/prisma-welcome/";
 
 var $config= new Array();
 $config["company_phone"] = "+34 886 131 361";

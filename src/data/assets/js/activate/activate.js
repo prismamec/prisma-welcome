@@ -9,15 +9,13 @@
   $(document).ready(function(){
     $.ajax({
       async: false,
-      type: "GET",
+      type: "POST",
       dataType: 'jsonp',
       jsonp: 'callback',
       jsonpCallback: 'jsonCallback',
       contentType: 'application/json',
-      url: $SERVER_PATH+"server/ajax/welcome/get_welcome.php",
+      url: $SERVER_PATH+"server/ajax/activate/get_activate.php",
       data: {
-        id_user: localStorage.getItem("id_user"),
-        sessionkey: localStorage.getItem("sessionkey"),
         lang: localStorage.getItem("lang")
       },
       error: function(data, textStatus, jqXHR) {
