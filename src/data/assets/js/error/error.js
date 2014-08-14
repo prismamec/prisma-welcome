@@ -7,7 +7,6 @@
   *********************************************************/
 
   $(document).ready(function(){
-    alert("Welcome to Error, your error is: "+localStorage.getItem('error_code'));
     $.ajax({
       async: false,
       type: "GET",
