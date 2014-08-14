@@ -20,17 +20,17 @@
   function error_handler(error_code){
     error_block:{
       //General
-      if(error_code=="ajax_error"){window.location.href = $PATH+"error/?error_code=ajax_error";break error_block;}
+      if(error_code=="ajax_error"){window.location.href = $PATH+"error/index.html?error_code=ajax_error";break error_block;}
       if(error_code=="system_closed"){window.location.href = $PATH+"closed/";break error_block;}
-      if(error_code=="db_connection_error"){window.location.href = $PATH+"error/?error_code=db_connection_error";break error_block;}
-      if(error_code=="no_user"){window.location.href = $PATH+"error/?error_code=no_user";break error_block;}
-      if(error_code=="user_not_valid"){window.location.href = $PATH+"error/?error_code=user_not_valid";break error_block;}
-      if(error_code=="user_inactive"){window.location.href = $PATH+"error/?error_code=user_inactive";break error_block;}
-      if(error_code=="sessionkey_expired"){window.location.href = $PATH+"error/?error_code=sessionkey_expired";break error_block;}
-      if(error_code=="session_expired"){window.location.href = $PATH+"error/?error_code=session_expired";break error_block;}
+      if(error_code=="db_connection_error"){window.location.href = $PATH+"error/index.html?error_code=db_connection_error";break error_block;}
+      if(error_code=="no_user"){window.location.href = $PATH+"error/index.html?error_code=no_user";break error_block;}
+      if(error_code=="user_not_valid"){window.location.href = $PATH+"error/index.html?error_code=user_not_valid";break error_block;}
+      if(error_code=="user_inactive"){window.location.href = $PATH+"error/index.html?error_code=user_inactive";break error_block;}
+      if(error_code=="sessionkey_expired"){window.location.href = $PATH+"error/index.html?error_code=sessionkey_expired";break error_block;}
+      if(error_code=="session_expired"){window.location.href = $PATH+"error/index.html?error_code=session_expired";break error_block;}
 
       //Error Unknow
-      window.location.href =  $PATH+"error/?error_code=base";break error_block;
+      window.location.href =  $PATH+"error/index.html?error_code=base";break error_block;
     }
   }
   function form_error_handler(form_id,error_srt){
@@ -41,7 +41,7 @@
       if(error_code=="ajax_error"){set_modal("error-modal",$error_s["ajax_error_title"],$error_s["ajax_error_content"],$s["close"],"#");break error_block;}
       if(error_code=="db_connection_error"){set_modal("error-modal",$error_s["db_connection_error_title"],$error_s["db_connection_error_content"],$s["close"],"#");break error_block;}
       //Error Unknow
-      window.location.href =  $PATH+"error/?error_code=base";break error_block;
+      window.location.href =  $PATH+"error/index.html?error_code=base";break error_block;
 
     }
   }
