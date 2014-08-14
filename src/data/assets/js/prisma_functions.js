@@ -18,8 +18,10 @@
       });
   }
   function error_handler(error_code){
+    alert("ERROR Handler: "+error_code);
     error_block:{
       localStorage.setItem('error_code',error_code);
+      alert("Local storage: "+localStorage.getItem('error_code');
       //General
       if(error_code=="ajax_error"){window.location.href = $PATH+"error/index.html";break error_block;}
       if(error_code=="system_closed"){window.location.href = $PATH+"closed/";break error_block;}
