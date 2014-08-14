@@ -7,6 +7,4 @@
   *
   *********************************************************/
 
-  //Welcome
-  $s["welcome_to_prisma"]="Bienvenido a Prisma";
 ?>
