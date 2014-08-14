@@ -74,9 +74,6 @@
     die();
   }
   $user=getInBD($table,$filter);
-  error_log($user["hash"]);
-  error_log(crypt($_GET["password"], $user["hash"]));
-
   if(crypt($_GET["password"], $user["hash"])!=$user["hash"]){
     $response["result"]=false;
     debug_log("[".$page_path."] ERROR User not valid");
@@ -99,7 +96,16 @@
   *********************************************************/
 
   $response["result"]=true;
+  $table="users";
+  $filter=array();
+  $filter["id_user"]=array("operation"=>"=","value"=>$user["id_user"]);
+  $data=array();
+  $data["last_connection"]=$timestamp;
+  $data["sessionkey"] = substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22);
 
+  updateInBD($table,$filter,$data);
+  $response["data"]["id_user"]=$user["id_user"];
+  $response["data"]["sessionkey"]=$data["sessionkey"];
 
   /*********************************************************
   * DATABASE REGISTRATION

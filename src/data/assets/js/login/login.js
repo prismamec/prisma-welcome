@@ -5,13 +5,6 @@
 * Version: 0.03
 *
 *********************************************************/
-/*********************************************************
-*
-* Author: Pablo Gutierrez Alfaro <pablo@royappty.com>
-* Last Edit: 16-08-2014
-* Version: 0.03
-*
-*********************************************************/
 
 $(document).ready(function(){
 	$.ajax({
@@ -82,7 +75,9 @@ $(document).ready(function(){
 				},
 				success: function(response) {
 					if(response.result){
-						alert("ok");
+						localStorage.setItem('id_user',response.data.id_user);
+						localStorage.setItem('sessionkey',response.data.sessionkey);
+						window.location.href = "../account/index.html";
 					}else{
 						form_error_handler("form-login",response.error_code_str);
 					}

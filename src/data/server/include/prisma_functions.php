@@ -214,7 +214,21 @@ function checkUser($user){
 		$response["error"]="ERROR User inactive";
 		$response["error_code"]="user_inactive";
 		$response["error_code_str"]= $error_code_s["user_inactive"];
-		echo "jsonCallback(".json_encode($response).")";
+		return false;
+		die();
+	}
+
+	$table="users";
+	$filter=array();
+	$filter["id_user"]=array("operation"=>"=","value"=>$user["id_user"]);
+	$filter["sessionkey"]=array("operation"=>"=","value"=>$user["sessionkey"]);
+	if(!isInBD($table,$filter)){
+		$response["result"]=false;
+		debug_log("[".$page_path."] ERROR Sessionkey expired");
+		$response["error"]="ERROR Sessionkey expired";
+		$response["error_code"]="sessionkey_expired";
+		$response["error_code_str"]= $error_code_s["sessionkey_expired"];
+		return false;
 		die();
 	}
 	return true;

@@ -54,6 +54,9 @@
   $error_step_s["login_not_valid"] = "Correo electrónico o contraseña no válida";
   $error_step_s["user_no_active"] = "Este usuario está bloqueado, contacte con nosotros";
 
+  //Account
+  $s["hello"] = "Hola";
+
   //Error strings
   $error_code_s["system_closed"] = "Se han bloqueado las peticiones al servidor en estos momentos, por favor vuelva a intentarlo más tarde";
   $error_code_s["db_connection_error"] = "Nuestro servidor está pasando por dificultades, por favor vuelva a intentarlo más tarde";

@@ -1,7 +1,7 @@
   /*********************************************************
   *
   * Author: Pablo Gutierrez Alfaro <pablo@royappty.com>
-  * Last Edit: 16-08-2014
+  * Last Edit: 13-08-2014
   * Version: 0.03
   *
   *********************************************************/
@@ -9,12 +9,12 @@
   $(document).ready(function(){
     $.ajax({
       async: false,
-      type: "GET",
+      type: 'GET',
       dataType: 'jsonp',
       jsonp: 'callback',
       jsonpCallback: 'jsonCallback',
       contentType: 'application/json',
-      url: $SERVER_PATH+"server/ajax/welcome/get_welcome.php",
+      url: $SERVER_PATH+"server/ajax/account/get_account.php",
       data: {
         id_user: localStorage.getItem("id_user"),
         sessionkey: localStorage.getItem("sessionkey"),

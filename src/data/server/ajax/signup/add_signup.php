@@ -80,7 +80,6 @@
   $data["phone"]=$_GET["phone"];
 	$salt = substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22);
 	$salt = strtr($salt, array('+' => '.'));
-	error_log("SALT: ".$salt);
 	$hash = crypt($_GET["password"],$salt);
   $data["hash"]=$hash;
 	$data["active"]=1;
