@@ -71,7 +71,7 @@
               <div class='grid-body'>
                 <div class='text-center'>
                   <div class='m-l-40 m-r-40 m-t-20'>
-                    <img width='300px' src='../assets/img/logo.png'/>
+                    <img width='150px' src='../assets/img/logo.png'/>
                   </div>
                   <p class='m-t-20'>
                     <img class='m-l-10 m-r-10' width='100px' src='../assets/img/recovery_icon.png'/>

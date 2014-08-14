@@ -149,7 +149,7 @@ function checkClosed(){
 		debug_log("[".$page_path."] ERROR System Closed");
 		$response["error"]="ERROR System Closed";
 		$response["error_code"]="system_closed";
-		$response["error_code_str"]= $error_code_s["system_closed"];
+		$response["error_code_str"]= htmlentities($error_code_s["system_closed"], ENT_QUOTES, "UTF-8");
 		return false;
 		die();
 	}
@@ -168,7 +168,7 @@ function checkBDConnection(){
 		debug_log("[".$page_path."] ERROR Can't connect with DataBase");
 		$response["error"]="ERROR Can't connect with DataBase";
 		$response["error_code"]="db_connection_error";
-		$response["error_code_str"]= $error_code_s["db_connection_error"];
+		$response["error_code_str"]= htmlentities($error_code_s["db_connection_error"], ENT_QUOTES, "UTF-8");
 		return false;
 		die();
 	}
@@ -187,7 +187,7 @@ function checkUser($user){
 		debug_log("[".$page_path."] ERROR Data Missing id_user");
 		$response["error"]="ERROR Data Missing user identificator";
 		$response["error_code"]="no_user";
-		$response["error_code_str"]= $error_code_s["no_user"];
+		$response["error_code_str"]= htmlentities($error_code_s["no_user"], ENT_QUOTES, "UTF-8");
 		return false;
 		die();
 	}
@@ -200,7 +200,7 @@ function checkUser($user){
 		debug_log("[".$page_path."] ERROR User not exists (id_user=".$user["id_user"].")");
 		$response["error"]="ERROR User not in the system";
 		$response["error_code"]="user_not_valid";
-		$response["error_code_str"]= $error_code_s["user_not_valid"];
+		$response["error_code_str"]= htmlentities($error_code_s["user_not_valid"], ENT_QUOTES, "UTF-8");
 		return false;
 		die();
 	}
@@ -214,7 +214,7 @@ function checkUser($user){
 		debug_log("[".$page_path."] ERROR user inactive (id_user=".$user["id_user"].")");
 		$response["error"]="ERROR User inactive";
 		$response["error_code"]="user_inactive";
-		$response["error_code_str"]= $error_code_s["user_inactive"];
+		$response["error_code_str"]= htmlentities($error_code_s["user_inactive"], ENT_QUOTES, "UTF-8");
 		return false;
 		die();
 	}
@@ -228,7 +228,7 @@ function checkUser($user){
 		debug_log("[".$page_path."] ERROR SessionKey expired");
 		$response["error"]="ERROR Sessionkey expired";
 		$response["error_code"]="sessionkey_expired";
-		$response["error_code_str"]= $error_code_s["sessionkey_expired"];
+		$response["error_code_str"]= htmlentities($error_code_s["sessionkey_expired"], ENT_QUOTES, "UTF-8");
 		return false;
 		die();
 	}
@@ -242,7 +242,7 @@ function checkUser($user){
 		debug_log("[".$page_path."] ERROR Session expired");
 		$response["error"]="ERROR Session expired";
 		$response["error_code"]="session_expired";
-		$response["error_code_str"]= $error_code_s["session_expired"];
+		$response["error_code_str"]= htmlentities($error_code_s["session_expired"], ENT_QUOTES, "UTF-8");
 
 		return false;
 		die();
