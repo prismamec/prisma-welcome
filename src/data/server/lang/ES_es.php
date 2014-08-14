@@ -60,8 +60,15 @@
   $s["software_center"] = "Centro de Software";
 
   //Recovery
-  $s["recovery_local"] = "Copia de seguridad en disco duro local";
-  $s["recovery_cloud"] = "Copia de seguridad en Prisma cloud";
+  $s["recovery_local"] = "Disco duro local";
+  $s["recovery_cloud"] = "Prisma Cloud";
+
+  //Recovery
+  $s["storage_and_backups_help"] = "Selecciona el dispositivo desde el que quieres restaurar tus datos.";
+
+  //Recovery Local
+  $s["recovery_local_help"] = "Selecciona la copia de seguirad local que deseas restaurar";
+  
   //Error
   $s["error"] = "Ha ocurrido un error";
 

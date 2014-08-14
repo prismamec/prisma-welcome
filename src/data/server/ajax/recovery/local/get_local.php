@@ -25,11 +25,11 @@
   * COMMON AJAX CALL DECLARATIONS AND INCLUDES
   *********************************************************/
 
-  define('PATH', str_replace('\\','/','../../'));
+  define('PATH', str_replace('\\','/','../../../'));
   @session_start();
   $timestamp=strtotime(date("Y-m-d H:i:00"));
   include(PATH."include/includes.php");
-  $page_path="server/ajax/welcome/get_welcome";
+  $page_path="server/ajax/recovery/local/get_local";
   debug_log("[".$page_path."] START");
   $response=array();
 
@@ -59,6 +59,10 @@
   $filter["id_user"]=array("operation"=>"=","value"=>$_GET["id_user"]);
   $user=getInBD($table,$filter);
 
+  $recovers=array();
+  $recovers["1"]["path"] = "\/recover\/1.img";
+  $recovers["1"]["created"] = date("-2 days");
+
   $response["data"]["page-data"]="
   <div class='page-container padding-20'>
     <div class='page-content'>
@@ -71,33 +75,24 @@
               <div class='grid-body'>
                 <div class='text-center'>
                   <div class='m-l-40 m-r-40 m-t-20'>
-                    <img width='300px' src='../assets/img/logo.png'/>
+                    <img width='300px' src='../../assets/img/logo.png'/>
                   </div>
-                  <h3>".htmlentities($s["storage_and_backups"], ENT_QUOTES, "UTF-8")."</h3>
-                  <p>".htmlentities($s["storage_and_backups_help"], ENT_QUOTES, "UTF-8")."</p>
+                  <h3>".htmlentities($s["recovery_local"], ENT_QUOTES, "UTF-8")."</h3>
+                  <p>".htmlentities($s["recovery_local_help"], ENT_QUOTES, "UTF-8")."</p>
                 </div>
-                <div class='row m-t-40'>
+                <div class='row m-t-20'>
                   <div class='col-md-2'>
                   </div>
-                  <div class='col-md-4 text-center'>
-                    <p>
-                      <a href='../recovery/local/index.html' class=''>
-                        <img width='100px' src='../assets/img/recovery_local_icon.png'/>
-                      </a>
-                    </p>
-                    <p>
-                      <a href='../recovery/index.html'>".$s["recovery_local"]."</a>
-                    </p>
-                  </div>
-                  <div class='col-md-4 text-center'>
-                    <p class=''>
-                      <a href='../recovery/cloud/index.html' class=''>
-                        <img width='100px' src='../assets/img/recovery_cloud_icon.png'/>
-                      </a>
-                    </p>
-                    <p class=''>
-                      <a href='../softwarecenter/index.html'>".$s["recovery_cloud"]."</a>
-                    </p>
+                  <div class='col-md-8 text-center'>
+                    <div class='grid simple'>
+                      <div class='grid-body'>";
+  foreach ($recovers as $key => $value){
+
+  }
+  $response["data"]["page-data"].="
+                      </div>
+                    </div>
+
                   </div>
                   <div class='col-md-2'>
                   </div>

@@ -64,7 +64,7 @@
                   </div>
                   <div class='col-md-6'>
                     <p class='m-l-40 m-r-40 text-center'>
-                      <img width='100px' src='../assets/img/account.png'/>
+                      <img width='100px' src='../assets/img/user_account_icon.png'/>
                     </p>
                     <div class=''>
                       <form id='form-login'>
