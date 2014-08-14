@@ -42,6 +42,9 @@
   // BD CONNECTION
   if(!checkBDConnection()){echo "jsonCallback(".json_encode($response).")";die();}
 
+  foreach($_GET as $key => $value){
+    error_log($key." ".$value);
+  }
   // USER
   if(!checkUser($_GET)){echo "jsonCallback(".json_encode($response).")";die();}
 
@@ -78,21 +81,21 @@
                   <div class='col-md-4 text-center'>
                     <p>
                       <a href='../recovery/index.html' class=''>
-                        <img width='100px' src='../assets/img/recovery_icon.png'/>
+                        <img width='100px' src='../assets/img/recovery_local_icon.png'/>
                       </a>
                     </p>
                     <p>
-                      <a href='../recovery/index.html'>".$s["storage_and_backups"]."</a>
+                      <a href='../recovery/index.html'>".$s["recovery_local"]."</a>
                     </p>
                   </div>
                   <div class='col-md-4 text-center'>
                     <p class=''>
                       <a href='../softwarecenter/index.html' class=''>
-                        <img width='100px' src='../assets/img/softwarecenter.png'/>
+                        <img width='100px' src='../assets/img/recovery_cloud_icon.png'/>
                       </a>
                     </p>
                     <p class=''>
-                      <a href='../softwarecenter/index.html'>".$s["software_center"]."</a>
+                      <a href='../softwarecenter/index.html'>".$s["recovery_cloud"]."</a>
                     </p>
                   </div>
                   <div class='col-md-2'>

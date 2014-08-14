@@ -77,7 +77,7 @@ $(document).ready(function(){
 					if(response.result){
 						localStorage.setItem('id_user',response.data.id_user);
 						localStorage.setItem('sessionkey',response.data.sessionkey);
-						window.location.href = "../account/index.html";
+						window.location.href = "../welcome/index.html";
 					}else{
 						form_error_handler("form-login",response.error_code_str);
 					}

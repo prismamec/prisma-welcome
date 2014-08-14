@@ -100,7 +100,8 @@
   $filter=array();
   $filter["id_user"]=array("operation"=>"=","value"=>$user["id_user"]);
   $data=array();
-  $data["last_connection"]=$timestamp;
+  $data["last_activity"]=$timestamp;
+  $data["last_login"]=$timestamp;
   $data["sessionkey"] = substr(base64_encode(openssl_random_pseudo_bytes('30')), 0, 22);
 
   updateInBD($table,$filter,$data);

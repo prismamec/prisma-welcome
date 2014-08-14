@@ -56,7 +56,12 @@
 
   //Account
   $s["hello"] = "Hola";
+  $s["storage_and_backups"] = "Almacenamiento y copias de seguridad";
+  $s["software_center"] = "Centro de Software";
 
+  //Recovery
+  $s["recovery_local"] = "Copia de seguridad en disco duro local";
+  $s["recovery_cloud"] = "Copia de seguridad en Prisma cloud";
   //Error
   $s["error"] = "Ha ocurrido un error";
 
