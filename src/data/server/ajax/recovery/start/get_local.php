@@ -87,8 +87,8 @@
                     <img class='m-l-10 m-r-10' width='100px' src='../../assets/img/recovery_icon.png'/>
                     <img class='m-l-10 m-r-10' width='100px' src='../../assets/img/recovery_local_icon.png'/>
                   </p>
-                  <h3>".htmlentities($s["recovery_local"], ENT_QUOTES, "UTF-8")."</h3>
-                  <p>".htmlentities($s["recovery_local_help"], ENT_QUOTES, "UTF-8")."</p>
+                  <h3>".htmlentities($s["recovery_local"], ENT_QUOTES, "UTF-8", FALSE)."</h3>
+                  <p>".htmlentities($s["recovery_local_help"], ENT_QUOTES, "UTF-8", FALSE)."</p>
                 </div>
                 <div class='row m-t-20'>
                   <div class='col-md-2'>

@@ -76,8 +76,8 @@
                   <p class='m-t-20'>
                     <img class='m-l-10 m-r-10' width='100px' src='../assets/img/recovery_icon.png'/>
                   </p>
-                  <h3>".htmlentities($s["storage_and_backups"], ENT_QUOTES, "UTF-8")."</h3>
-                  <p>".htmlentities($s["storage_and_backups_help"], ENT_QUOTES, "UTF-8")."</p>
+                  <h3>".htmlentities($s["storage_and_backups"], ENT_QUOTES, "UTF-8", FALSE)."</h3>
+                  <p>".htmlentities($s["storage_and_backups_help"], ENT_QUOTES, "UTF-8", FALSE)."</p>
                 </div>
                 <div class='row m-t-40'>
                   <div class='col-md-2'>

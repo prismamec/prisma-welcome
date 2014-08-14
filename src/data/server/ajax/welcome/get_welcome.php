@@ -70,7 +70,7 @@
                   <div class='m-l-40 m-r-40 m-t-20'>
                     <img width='300px' src='../assets/img/logo.png'/>
                   </div>
-                  <h3>".htmlentities($s["hello"].", ".$user["name"], ENT_QUOTES, "UTF-8")."</h3>
+                  <h3>".htmlentities($s["hello"].", ".$user["name"], ENT_QUOTES, "UTF-8", FALSE)."</h3>
                 </div>
                 <div class='row m-t-40'>
                   <div class='col-md-2'>

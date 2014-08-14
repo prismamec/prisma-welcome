@@ -57,7 +57,7 @@
                   <div class='m-l-40 m-r-40 m-t-20'>
                     <img width='300px' src='../assets/img/logo.png'/>
                   </div>
-                  <h3>".htmlentities($s["login"], ENT_QUOTES, "UTF-8")."</h3>
+                  <h3>".htmlentities($s["login"], ENT_QUOTES, "UTF-8", FALSE)."</h3>
                 </div>
                 <div class='row'>
                   <div class='col-md-3'>
@@ -69,15 +69,15 @@
                     <div class=''>
                       <form id='form-login'>
                         <div class='form-group'>
-                          <label class='form-label'>".htmlentities($login_s["email"], ENT_QUOTES, "UTF-8")."</label>
-                          <span class='help'>".htmlentities($login_s["email_help"], ENT_QUOTES, "UTF-8")."</span>
+                          <label class='form-label'>".htmlentities($login_s["email"], ENT_QUOTES, "UTF-8", FALSE)."</label>
+                          <span class='help'>".htmlentities($login_s["email_help"], ENT_QUOTES, "UTF-8", FALSE)."</span>
                           <div class='controls'>
                             <input type='text' class='form-control' id='email' name='email'/>
                           </div>
                         </div>
                         <div class='form-group'>
-                          <label class='form-label'>".htmlentities($login_s["password"], ENT_QUOTES, "UTF-8")."</label>
-                          <span class='help'>".htmlentities($login_s["password_help"], ENT_QUOTES, "UTF-8")."</span>
+                          <label class='form-label'>".htmlentities($login_s["password"], ENT_QUOTES, "UTF-8", FALSE)."</label>
+                          <span class='help'>".htmlentities($login_s["password_help"], ENT_QUOTES, "UTF-8", FALSE)."</span>
                           <div class='controls'>
                             <input type='password' class='form-control' id='password' name='password'/>
                           </div>

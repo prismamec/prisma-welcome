@@ -54,9 +54,9 @@
                   <div class='m-l-40 m-r-40 m-t-20'>
                     <img width='300px' src='../assets/img/logo.png'/>
                   </div>
-                  <h3>".htmlentities($s["error"], ENT_QUOTES, "UTF-8")."</h3>
-                  <p>".htmlentities($error_code_s[$_GET["error_code"]], ENT_QUOTES, "UTF-8")."</p>
-                  <a href='../".$error_link_s[$_GET["error_code"]]."' class='btn btn-white'>".htmlentities($s["back"], ENT_QUOTES, "UTF-8")."</a>
+                  <h3>".htmlentities($s["error"], ENT_QUOTES, "UTF-8", FALSE)."</h3>
+                  <p>".htmlentities($error_code_s[$_GET["error_code"]], ENT_QUOTES, "UTF-8", FALSE)."</p>
+                  <a href='../".$error_link_s[$_GET["error_code"]]."' class='btn btn-white'>".htmlentities($s["back"], ENT_QUOTES, "UTF-8", FALSE)."</a>
                 </div>
               </div>
             </div>

@@ -58,43 +58,43 @@
                   <div class='m-l-40 m-r-40 m-t-20'>
                     <img width='300px' src='../assets/img/logo.png'/>
                   </div>
-                  <h3>".htmlentities($s["signup"], ENT_QUOTES, "UTF-8")."</h3>
-                  <p class='m-l-40 m-r-40'>".htmlentities($s["signup_help"], ENT_QUOTES, "UTF-8")."</p>
+                  <h3>".htmlentities($s["signup"], ENT_QUOTES, "UTF-8", FALSE)."</h3>
+                  <p class='m-l-40 m-r-40'>".htmlentities($s["signup_help"], ENT_QUOTES, "UTF-8", FALSE)."</p>
                   </p>
                 </div>
                 <div class='m-l-20 m-r-20'>
                   <form id='form-signup'>
                   	<div class='form-group'>
-    									<label class='form-label'>".htmlentities($signup_s["name"], ENT_QUOTES, "UTF-8")."</label>
-    									<span class='help'>".htmlentities($signup_s["name_help"], ENT_QUOTES, "UTF-8")."</span>
+    									<label class='form-label'>".htmlentities($signup_s["name"], ENT_QUOTES, "UTF-8", FALSE)."</label>
+    									<span class='help'>".htmlentities($signup_s["name_help"], ENT_QUOTES, "UTF-8", FALSE)."</span>
     									<div class='controls'>
                         <input type='text' class='form-control' id='name' name='name'/>
     									</div>
     								</div>
                     <div class='form-group'>
-                      <label class='form-label'>".htmlentities($signup_s["email"], ENT_QUOTES, "UTF-8")."</label>
-                      <span class='help'>".htmlentities($signup_s["email_help"], ENT_QUOTES, "UTF-8")."</span>
+                      <label class='form-label'>".htmlentities($signup_s["email"], ENT_QUOTES, "UTF-8", FALSE)."</label>
+                      <span class='help'>".htmlentities($signup_s["email_help"], ENT_QUOTES, "UTF-8", FALSE)."</span>
                       <div class='controls'>
                         <input type='text' class='form-control' id='email' name='email'/>
                       </div>
                     </div>
                     <div class='form-group'>
-                      <label class='form-label'>".htmlentities($signup_s["phone"], ENT_QUOTES, "UTF-8")."</label>
-                      <span class='help'>".htmlentities($signup_s["phone_help"], ENT_QUOTES, "UTF-8")."</span>
+                      <label class='form-label'>".htmlentities($signup_s["phone"], ENT_QUOTES, "UTF-8", FALSE)."</label>
+                      <span class='help'>".htmlentities($signup_s["phone_help"], ENT_QUOTES, "UTF-8", FALSE)."</span>
                       <div class='controls'>
                         <input type='text' class='form-control' id='phone' name='phone'/>
                       </div>
                     </div>
                     <div class='form-group'>
-                      <label class='form-label'>".htmlentities($signup_s["password"], ENT_QUOTES, "UTF-8")."</label>
-                      <span class='help'>".htmlentities($signup_s["password_help"], ENT_QUOTES, "UTF-8")."</span>
+                      <label class='form-label'>".htmlentities($signup_s["password"], ENT_QUOTES, "UTF-8", FALSE)."</label>
+                      <span class='help'>".htmlentities($signup_s["password_help"], ENT_QUOTES, "UTF-8", FALSE)."</span>
                       <div class='controls'>
                         <input type='password' class='form-control' id='password' name='password'/>
                       </div>
                     </div>
                     <div class='form-group'>
-                      <label class='form-label'>".htmlentities($signup_s["repeat_password"], ENT_QUOTES, "UTF-8")."</label>
-                      <span class='help'>".htmlentities($signup_s["repeat_password_help"], ENT_QUOTES, "UTF-8")."</span>
+                      <label class='form-label'>".htmlentities($signup_s["repeat_password"], ENT_QUOTES, "UTF-8", FALSE)."</label>
+                      <span class='help'>".htmlentities($signup_s["repeat_password_help"], ENT_QUOTES, "UTF-8", FALSE)."</span>
                       <div class='controls'>
                         <input type='password' class='form-control' id='repeat_password' name='repeat_password'/>
                       </div>
