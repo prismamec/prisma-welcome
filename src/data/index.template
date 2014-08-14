@@ -86,7 +86,7 @@
 						data-endeasing="Power1.easeIn"
 						data-captionhidden="off"
 						style="z-index: 6">
-						<a href="./welcome/" class="btn btn-lg btn-primary m-r-10">SALTAR</a>
+						<a href="./welcome" class="btn btn-lg btn-primary m-r-10">SALTAR</a>
 					</div>
 				</li>
 
